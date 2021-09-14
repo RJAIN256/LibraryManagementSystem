@@ -1,0 +1,608 @@
+<!-- 
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+    <h3>Update Damage Book</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onUpdate(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>Damage Book ID: </label>
+
+            <input required minlength="1" type="number" [(ngModel)]="obj1.id" readonly="readonly" #bookIdRef='ngModel'
+                name="id" ngModel class="form-control">
+
+        </div>
+        <div class="form-group">
+
+            <label>Book Title: </label>
+    
+            <input required minlength="6" type="text" #bookNameRef='ngModel' name="title" [(ngModel)]='obj1.book.title' ngModel class="form-control"/>
+    
+            <div *ngIf='bookNameRef.errors
+                        && bookNameRef.touched' class="alert alert-danger">
+                <div *ngIf='bookNameRef.errors.required'>Provide Book Title </div>
+                 <div *ngIf='!bookNameRef.errors.pattern'>Title should be minimum of 6 characters length</div> 
+            </div> 
+    
+        </div>
+        <div class="form-group">
+    
+            <label>Book Subject: </label>
+    
+            <input required minlength="10" length="10" type="text" #booksubRef='ngModel' name="title" [(ngModel)]='obj1.book.subject' ngModel class="form-control">
+    
+            <div *ngIf='booksubRef.errors && booksubRef.touched' class="alert alert-danger">
+    
+                <div [hidden]='!booksubRef.errors.required'> Provide Book cost </div>
+    
+            </div>
+        </div>
+    
+        <div class="form-group">
+    
+            <label>Published Year: </label>
+    
+            <input  type="number" #bookpubRef='ngModel'  name="publishedyear" [(ngModel)]='obj1.book.publishedYear' ngModel class="form-control">
+    
+            <div *ngIf='bookpubRef.errors && bookpubRef.touched' class="alert alert-danger">
+    
+                <div [hidden]='!bookpubRef.errors.required'> Provide Book Publish Year </div>
+    
+                <div [hidden]='bookpubRef.errors.pattern'>Publish year should consists of 4 digits</div> 
+    
+            </div>
+        </div>
+    
+        <div class="form-group">
+    
+            <label>isbnCode: </label>
+    
+            <input required minlength="6" type="text" #isbnCode='ngModel' name="isbn" [(ngModel)]='obj1.book.isbnCode' ngModel
+                class="form-control">
+    
+            <div *ngIf='isbnCode.errors
+                        && isbnCode.touched' class="alert alert-danger">
+    
+                <div [hidden]='!isbnCode.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='isbnCode.errors.pattern'>isbn Code should be minimum of 6 characters length</div>
+    
+            </div>
+    
+        </div>
+        <div class="form-group">
+    
+            <label>quantity: </label>
+    
+            <input required minlength="1" type="number" #quantity='ngModel' name="quantity" [(ngModel)]='obj1.book.quantity' ngModel
+                class="form-control">
+    
+            <div *ngIf='quantity.errors
+                        && quantity.touched' class="alert alert-danger">
+    
+                <div [hidden]='!quantity.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='quantity.errors.pattern'>quantity should be minimum of 1 characters length</div>
+    
+            </div>
+    
+        </div>
+        <div class="form-group">
+    
+            <label>bookCost: </label>
+    
+            <input required minlength="1" type="number" #bookCost='ngModel' name="bookCost" [(ngModel)]='obj1.book.bookCost' ngModel
+                class="form-control">
+    
+            <div *ngIf='bookCost.errors
+                        && bookCost.touched' class="alert alert-danger">
+    
+                <div [hidden]='!bookCost.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='bookCost.errors.pattern'>Book Cost should be minimum of 1 characters length</div>
+    
+            </div>
+    
+        </div>
+        <div class="form-group">
+    
+            <label>shelfDetails: </label>
+    
+            <input required minlength="1" type="text" #shelfDetails='ngModel' name="shelfDetails" [(ngModel)]='obj1.book.shelfDetails' ngModel
+                class="form-control">
+    
+            <div *ngIf='shelfDetails.errors
+                        && shelfDetails.touched' class="alert alert-danger">
+    
+                <div [hidden]='!shelfDetails.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='shelfDetails.errors.pattern'>shelf Details should be minimum of 1 characters length</div>
+    
+            </div>
+    
+        </div>
+        <div class="form-group">
+    
+            <label>Author first name </label>
+    
+            <input required minlength="1" type="text" #firstname='ngModel' name="firstname" [(ngModel)]='obj1.book.author.firstName' ngModel
+                class="form-control">
+    
+            <div *ngIf='firstname.errors
+                        && firstname.touched' class="alert alert-danger">
+    
+                <div [hidden]='!firstname.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='firstname.errors.pattern'>first name should be minimum of 1 characters length</div>
+    
+            </div>
+    
+        </div>
+    
+        <div class="form-group">
+    
+            <label>Author last name </label>
+    
+            <input required minlength="1" type="text" #lastname='ngModel' name="lastname" [(ngModel)]='obj1.book.author.lastName' ngModel
+                class="form-control">
+    
+            <div *ngIf='lastname.errors
+                        && lastname.touched' class="alert alert-danger">
+    
+                <div [hidden]='!lastname.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='lastname.errors.pattern'>last name should be minimum of 1 characters length</div>
+    
+            </div>
+    
+        </div>
+    
+        <div class="form-group">
+    
+            <label>Author email </label>
+    
+            <input required minlength="1" type="email" #email='ngModel' name="email" [(ngModel)]='obj1.book.author.email' ngModel
+                class="form-control">
+    
+            <div *ngIf='email.errors
+                        && email.touched' class="alert alert-danger">
+    
+                <div [hidden]='!email.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='email.errors.pattern'>email should be minimum of 1 characters length</div>
+    
+            </div>
+    
+        </div>
+    
+        <div class="form-group">
+    
+            <label>Author contact number </label>
+    
+            <input required minlength="1" type="number" #num='ngModel' name="contactno" [(ngModel)]='obj1.book.author.contactno' ngModel
+                class="form-control">
+    
+            <div *ngIf='num.errors
+                        && num.touched' class="alert alert-danger">
+    
+                <div [hidden]='!num.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='num.errors.pattern'>number should be minimum of 1 characters length</div>
+    
+            </div>
+    
+        </div>
+        <div class="form-group">
+    
+            <label>Publisher Name </label>
+    
+            <input required minlength="1" type="text" #pubname='ngModel' name="name" [(ngModel)]='obj1.book.publisher.publisherName' ngModel
+                class="form-control">
+    
+            <div *ngIf='pubname.errors
+                        && pubname.touched' class="alert alert-danger">
+    
+                <div [hidden]='!pubname.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='pubname.errors.pattern'>Publisher name should be minimum of 1 characters length</div>
+    
+            </div>
+            </div>
+            <div class="form-group">
+    
+                <label>Publisher contact number </label>
+        
+                <input required minlength="1" type="number" #pubcont='ngModel' name="number" [(ngModel)]='obj1.book.publisher.contactno' ngModel
+                    class="form-control">
+        
+                <div *ngIf='pubcont.errors
+                            && pubcont.touched' class="alert alert-danger">
+        
+                    <div [hidden]='!pubcont.errors.required'>
+        
+                        Provide isbn code
+                    </div>
+                    <div [hidden]='pubcont.errors.pattern'>Publisher number should be minimum of 1 characters length</div>
+        
+                </div>
+    
+        </div>
+
+        <div class="form-group">
+    
+            <label>Publisher Email </label>
+    
+            <input required minlength="1" type="email" #pubemail='ngModel' name="email" [(ngModel)]='obj1.book.publisher.email' ngModel
+                class="form-control">
+    
+            <div *ngIf='pubemail.errors
+                        && pubemail.touched' class="alert alert-danger">
+    
+                <div [hidden]='!pubemail.errors.required'>
+    
+                    Provide isbn code
+                </div>
+                <div [hidden]='pubemail.errors.pattern'>Publisher email should be minimum of 1 characters length</div>
+    
+            </div>
+    
+    </div>
+    <div class="form-group">
+    
+        <label>Publisher Address1 </label>
+    
+        <input required minlength="1" type="text" #pubadd1='ngModel' name="address" [(ngModel)]='obj1.book.publisher.address1' ngModel
+            class="form-control">
+    
+        <div *ngIf='pubadd1.errors
+                    && pubadd1.touched' class="alert alert-danger">
+    
+            <div [hidden]='!pubadd1.errors.required'>
+    
+                Provide isbn code
+            </div>
+            <div [hidden]='pubadd1.errors.pattern'>Publisher address should be minimum of 1 characters length</div>
+    
+        </div>
+    
+    </div>
+    <div class="form-group">
+    
+        <label>Publisher Address2 </label>
+    
+        <input required minlength="1" type="text" #pubadd2='ngModel' name="address" [(ngModel)]='obj1.book.publisher.address2' ngModel
+            class="form-control">
+    
+        <div *ngIf='pubadd2.errors
+                    && pubadd2.touched' class="alert alert-danger">
+    
+            <div [hidden]='!pubadd2.errors.required'>
+    
+                Provide isbn code
+            </div>
+            <div [hidden]='pubadd2.errors.pattern'>Publisher address should be minimum of 1 characters length</div>
+    
+        </div>
+        </div>
+        <div class="form-group">
+    
+            <label>Publisher City </label>
+        
+            <input required minlength="1" type="text" #pubcity='ngModel' name="city" [(ngModel)]='obj1.book.publisher.city' ngModel
+                class="form-control">
+        
+            <div *ngIf='pubcity.errors
+                        && pubcity.touched' class="alert alert-danger">
+        
+                <div [hidden]='!pubcity.errors.required'>
+        
+                    Provide isbn code
+                </div>
+                <div [hidden]='pubcity.errors.pattern'>Publisher city should be minimum of 1 characters length</div>
+        
+            </div>
+    
+    </div>
+    <div class="form-group">
+    
+        <label>Publisher State </label>
+    
+        <input required minlength="1" type="text" #pubstate='ngModel' name="state" [(ngModel)]='obj1.book.publisher.state' ngModel
+            class="form-control">
+    
+        <div *ngIf='pubstate.errors
+                    && pubstate.touched' class="alert alert-danger">
+    
+            <div [hidden]='!pubstate.errors.required'>
+    
+                Provide isbn code
+            </div>
+            <div [hidden]='pubstate.errors.pattern'>Publisher state should be minimum of 1 characters length</div>
+    
+        </div>
+    
+    </div>
+    <div class="form-group">
+    
+        <label>Publisher Pincode </label>
+    
+        <input required minlength="1" type="text" #pubpin='ngModel' name="pin" [(ngModel)]='obj1.book.publisher.pincode' ngModel
+            class="form-control">
+    
+        <div *ngIf='pubpin.errors
+                    && pubpin.touched' class="alert alert-danger">
+    
+            <div [hidden]='!pubpin.errors.required'>
+    
+                Provide isbn code
+            </div>
+            <div [hidden]='pubpin.errors.pattern'>Publisher pincode should be minimum of 1 characters length</div>
+    
+        </div>
+    
+    </div>
+    
+    <div class="form-group">
+
+        <label>Damage Book quantity </label>
+    
+        <input required minlength="1" type="number" #odqnt='ngModel' name="quantity" [(ngModel)]='obj1.quantity' ngModel
+            class="form-control">
+    
+        <div *ngIf='odqnt.errors
+                    && odqnt.touched' class="alert alert-danger">
+    
+            <div [hidden]='!odqnt.errors.required'>
+    
+                Provide Order Quantity 
+            </div>
+            <div [hidden]='odqnt.errors.pattern'>Damage book quantity should be minimum of 1 characters length</div>
+    
+        </div>
+    
+    </div>
+    
+    <div class="form-group">
+    
+        <label>Damage Book Description </label>
+    
+        <input required minlength="1" type="text" #oddate='ngModel' name="date" [(ngModel)]='obj1.description' ngModel
+            class="form-control">
+    
+        <div *ngIf='oddate.errors
+                    && oddate.touched' class="alert alert-danger">
+    
+            <div [hidden]='!oddate.errors.required'>
+    
+                Provide Order date
+            </div>
+            <div [hidden]='oddate.errors.pattern'>Order quantity should be minimum of 1 characters length</div>
+    
+        </div>
+    
+    </div>
+    
+      
+        <input [disabled]="userForm.invalid" type="submit" value="Edit Book" class="btn btn-primary">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>
+ -->
+ <div class="container" style="background-color: white; margin-bottom: 50px; margin-top: 50px;">
+    <form #userForm="ngForm" (ngSubmit)='onUpdate(userForm.value)'>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Book</h3>
+                <div class="form-group">
+                    <label>Book id:</label>
+                    <input required minlength="1" type="number" [(ngModel)]="obj1.id" readonly="readonly" #bookIdRef='ngModel'
+            name="id" ngModel class="form-control"  placeholder = "Book_Id">
+                </div>
+                <div class="form-group">
+                    <label>Book Title:</label>
+                    <input required minlength="6" type="text"[class.is-invalid]="bookNameRef.invalid && bookNameRef.touched" #bookNameRef='ngModel' placeholder=" Book Title" name="title" [(ngModel)]='obj1.book.title' ngModel class="form-control"/>
+            <small class="text-danger" [class.d-none]="bookNameRef.valid || bookNameRef.untouched">Enter Book Title</small>
+                </div>
+                <div class="form-group">
+                    <label>Book Subject: </label><br>
+                    <input required minlength="10" length="10" [class.is-invalid]="booksubRef.invalid && booksubRef.touched" type="text" placeholder="Subject" #booksubRef='ngModel' name="title" [(ngModel)]='obj1.book.subject' ngModel class="form-control"> 
+                    <small class="text-danger" [class.d-none]="booksubRef.valid || booksubRef.untouched">Enter Book Subject</small>    
+
+                </div>
+                <div class="form-group">
+                    <label>Published Year: </label><br>
+                    <input  type="number" #bookpubRef='ngModel' [class.is-invalid]="bookpubRef.invalid && bookpubRef.touched" name="publishedyear" placeholder = "Publishd Year" [(ngModel)]='obj1.book.publishedYear' ngModel class="form-control">
+                    <small class="text-danger" [class.d-none]="bookpubRef.valid || bookpubRef.untouched">Enter Published year</small>   
+
+                </div>
+                <div class="form-group">
+                    <label>Isbn Code: </label><br>
+                    <input required minlength="6" type="text" [class.is-invalid]="isbnCode.invalid && isbnCode.touched" #isbnCode='ngModel' placeholder = "ISBN Code" name="isbn" [(ngModel)]='obj1.book.isbnCode' ngModel
+                class="form-control">
+                <small class="text-danger" [class.d-none]="isbnCode.valid || isbnCode.untouched">Enter ISBN code</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Quantity: </label><br>
+                    <input required minlength="1" [class.is-invalid]="quantity.invalid && quantity.touched" type="number" placeholder = "Quantity" #quantity='ngModel' name="quantity" [(ngModel)]='obj1.book.quantity' ngModel
+                    class="form-control">
+                    <small class="text-danger" [class.d-none]="quantity.valid || quantity.untouched">Quantity is required</small>   
+
+                </div>
+                <div class="form-group">
+                    <label>Book Cost: </label><br>
+                    <input required minlength="1" [class.is-invalid]="bookCost.invalid && bookCost.touched" type="number" placeholder="BookCost" #bookCost='ngModel' name="bookCost" [(ngModel)]='obj1.book.bookCost' ngModel
+                    class="form-control">
+                    <small class="text-danger" [class.d-none]="bookCost.valid || bookCost.untouched">Book Cost is required</small> 
+
+                </div>
+
+                <div class="form-group">
+                    <label>shelfDetails: </label><br>
+                    <input required minlength="1" [class.is-invalid]="shelfDetails.invalid && shelfDetails.touched" placeholder = "Shelf Details" type="text" #shelfDetails='ngModel' name="shelfDetails" [(ngModel)]='obj1.book.shelfDetails' ngModel
+                class="form-control">
+                <small class="text-danger" [class.d-none]="shelfDetails.valid || shelfDetails.untouched">ShelfDetails is required</small>
+
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <h3>Author details</h3>
+                <div class="form-group">
+                    <label>Author id:</label><br>
+                    <input type="number" name="" id="" placeholder = "Author_Id" required>
+                </div>
+                <div class="form-group">
+                    <label>FirstName :</label><br>
+                    <input required  type="text" [class.is-invalid]="firstname.invalid && firstname.touched" #firstname='ngModel' name="firstname" [(ngModel)]='obj1.book.author.firstName' ngModel
+                class="form-control"> 
+            <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched">FirstName is required</small>
+                </div>
+                <div class="form-group">
+                    <label>LastName :</label><br>
+                    <input required  type="text" [class.is-invalid]="lastname.invalid && lastname.touched" #lastname='ngModel' name="lastname" [(ngModel)]='obj1.book.author.lastName' ngModel
+                    class="form-control">
+                <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">LastName is required</small>
+                </div>
+                <div class="form-group">
+                    <label> Email: </label>
+                    <input required  type="email" [class.is-invalid]="email.invalid && email.touched" #email='ngModel' name="email" [(ngModel)]='obj1.book.author.email' ngModel
+                    class="form-control">
+                <small class="text-danger" [class.d-none]="pubname.valid || pubname.untouched">Email is required</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Number: </label>
+                    <input required minlength="10" type="number" [class.is-invalid]="num.invalid && num.touched" #num='ngModel' name="contactno" [(ngModel)]='obj1.book.author.contactno' ngModel
+                    class="form-control">
+                    <div *ngIf="num.errors && (num.invalid || num.touched)" class="alert alert-danger">
+                        <div *ngIf="num.errors.required"> Contact number is required. </div>
+                        <div *ngIf="num.errors.pattern"> Must contain at least 10 digits in this field</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <h3> Publisher Detail</h3>
+                <div class="form-group">
+                    <label>Publisher Id </label><br>
+                   
+                    <input type="number" name="" id="" placeholder = "Publisher_Id" required>
+                </div>
+                <div class="form-group">
+                    <label>Publisher name </label><br>
+                   
+                    <input required  [class.is-invalid]="pubname.invalid && pubname.touched" type="text" #pubname='ngModel' name="name" [(ngModel)]='obj1.book.publisher.publisherName' ngModel
+                    class="form-control"> 
+                <small class="text-danger" [class.d-none]="pubname.valid || pubname.untouched"> Publisher Name is required</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number: </label><br>
+                     
+                    <input required minlength="10" [class.is-invalid]="pubcont.invalid && pubcont.touched" type="number" #pubcont='ngModel' name="number" [(ngModel)]='obj1.book.publisher.contactno' ngModel
+                    class="form-control">
+                    <div *ngIf="pubcont.errors && (pubcont.invalid || pubcont.touched)" class="alert alert-danger">
+                        <div *ngIf="pubcont.errors.required"> Contact number is required. </div>
+                        <div *ngIf="pubcont.errors.pattern"> <h4> contain at least 10 digits in this field</h4></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input required  [class.is-invalid]="pubemail.invalid && pubemail.touched" type="email" #pubemail='ngModel' name="email" [(ngModel)]='obj1.book.publisher.email' ngModel
+                    class="form-control">
+                <small class="text-danger" [class.d-none]="pubemail.valid || pubemail.untouched">publisher Email is required</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Address1:</label>
+                    <input required  [class.is-invalid]="pubadd1.invalid && pubadd1.touched" type="text" #pubadd1='ngModel' name="address" [(ngModel)]='obj1.book.publisher.address1' ngModel
+                    class="form-control">
+                    <small class="text-danger" [class.d-none]="pubadd1.valid || pubadd1.untouched">Publisher Address is required</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Address2: </label><br>
+                    
+                    <input required minlength="1" [class.is-invalid]="pubadd2.invalid && pubadd2.touched" type="text" #pubadd2='ngModel' name="address" [(ngModel)]='obj1.book.publisher.address2' ngModel
+                    class="form-control">         
+                       <small class="text-danger" [class.d-none]="pubadd2.valid || pubadd2.untouched">Publisher address is required</small>
+                </div>
+
+                <div class="form-group">
+                    <label>City: </label><br>
+                    <input required  [class.is-invalid]="pubcity.invalid && pubcity.touched" type="text" #pubcity='ngModel' name="city" [(ngModel)]='obj1.book.publisher.city' ngModel
+                    class="form-control">
+                <small class="text-danger" [class.d-none]="pubcity.valid || pubcity.untouched">Publisher City is required</small>
+                                          
+                </div>
+
+                <div class="form-group">
+                    <label>State: </label><br>
+                    <input required  [class.is-invalid]="pubstate.invalid && pubstate.touched" type="text" #pubstate='ngModel' name="state" [(ngModel)]='obj1.book.publisher.state' ngModel
+                    class="form-control">
+                    <small class="text-danger" [class.d-none]="pubstate.valid || pubstate.untouched">Publisher State is required</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Pin Code: </label><br>
+                    <input required  [class.is-invalid]="pubpin.invalid && pubpin.touched" type="text" #pubpin='ngModel' name="pin" [(ngModel)]='obj1.book.publisher.pincode' ngModel
+                    class="form-control">
+                    <small class="text-danger" [class.d-none]="pubpin.valid || pubpin.untouched">Publisher Pin Code is required</small>
+                </div>
+
+                <div class="col-md-4">
+                    <h3> Damage Book Detail</h3>
+                <div class="form-group">
+                    <label>Quantity: </label><br>
+                    <input required  [class.is-invalid]="odqnt.invalid && odqnt.touched" type="number" #odqnt='ngModel' name="quantity" [(ngModel)]='obj1.quantity' ngModel
+            class="form-control">
+            <small class="text-danger" [class.d-none]="odqnt.valid || odqnt.untouched">Publisher Quantity is required</small>
+                </div>
+               
+                <div class="form-group">
+                    <label>Description: </label><br>
+                    <input required  type="text" [class.is-invalid]="oddate.invalid && oddate.touched" #oddate='ngModel' name="date" [(ngModel)]='obj1.description' ngModel
+                    class="form-control">
+                    <small class="text-danger" [class.d-none]="oddate.valid || oddate.untouched">Publisher Description is required</small>
+                </div>
+               
+                </div>
+
+            </div>
+        </div>
+        <div style="text-align: center; ">
+            <input type="submit" style="margin-bottom: 50px;" value="Submit Form" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+<!-- [disabled]="!userForm.valid" -->

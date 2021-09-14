@@ -1,0 +1,246 @@
+<!-- 
+<h1 align="center">
+    All Books</h1>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Issued Id</th>
+            <th scope="col">Book Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Book Cost</th>
+            <th scope="col">Shelf Details</th>
+            <th scope="col">Publish Year</th>
+            <th scope="col">Isbncode</th>
+            <th scope="col">Author Id</th>
+            <th scope="col">Author First Name</th>
+            <th scope="col">Author Last Name</th>
+            <th scope="col">Author Email</th>
+            <th scope="col">Author Contact Number</th>
+            <th scope="col">Publisher Name</th>
+            <th scope="col">Publisher Contact Number</th>
+            <th scope="col">Publisher Email</th>
+            <th scope="col">Publisher Address1</th>
+            <th scope="col">Publisher Address2</th>
+            <th scope="col">Publisher City</th>
+            <th scope="col">Publisher State</th>
+            <th scope="col">Publisher Pincode</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of issueBookList">
+
+            <th scope="row">1</th>
+            <td>{{e.issueId}}</td>
+            <td>{{e.books.bookid}}</td>
+            <td>{{e.title}}</td>
+            <td>{{e.subject}}</td>
+            <td>{{e.quantity}}</td>
+            <td>{{e.bookCost}}</td>
+            <td>{{e.shelfDetails}}</td>
+            <td>{{e.publishedYear}}</td>
+            <td>{{e.isbnCode}}</td>
+             <td>{{e.author.authorId}}</td>
+            <td>{{e.author.firstName}}</td>
+            <td>{{e.author.lastName}}</td>
+            <td>{{e.author.email}}</td>
+            <td>{{e.author.contactno}}</td>
+
+        </tr>
+
+
+
+    </tbody>
+</table>  -->
+
+<script>
+    // $('#myModal').on('shown.bs.modal', function () {
+    //   $('#myInput').trigger('focus')
+    // })
+  </script>
+  
+  <div class="container" style="font-size: 20px; color: white;">
+    <h1 align="center">
+      View All Issued Books</h1>
+    <hr>
+  
+  
+    <div class="table-responsive-md">
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+             
+				<th scope="col">Issued Id</th>
+                <th scope="col">Book Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Subject</th>
+              <!-- <th scope="col">Quantity</th>
+              <th scope="col">Book Cost</th>
+              <th scope="col">Shelf Details</th>
+              <th scope="col">Publish Year</th>
+              <th scope="col">Isbncode</th>
+              <th scope="col">Author Id</th> -->
+              <th scope="col">Author First Name</th>
+              <!-- <th scope="col">Author Last Name</th>
+              <th scope="col">Author Email</th>
+              <th scope="col">Author Contact Number</th>
+              <th scope="col">Publisher Name</th>
+              <th scope="col">Publisher Contact Number</th>
+              <th scope="col">Publisher Email</th>
+              <th scope="col">Publisher Address1</th>
+              <th scope="col">Publisher Address2</th>
+              <th scope="col">Publisher City</th>
+              <th scope="col">Publisher State</th>
+              <th scope="col">Publisher Pincode</th> -->
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of issueBookList" style="text-align: center;">
+                <td>{{e.issueId}}</td>
+                <td>{{e.books.bookid}}</td>
+                <td>{{e.books.title}}</td>
+                <td>{{e.books.subject}}</td>
+              <!-- <td>{{e.quantity}}</td>
+              <td>{{e.bookCost}}</td>
+              <td>{{e.shelfDetails}}</td>
+              <td>{{e.publishedYear}}</td>
+              <td>{{e.isbnCode}}</td>
+               <td>{{e.author.authorId}}</td> -->
+              <td>{{e.books.author.firstName}}</td>
+             <!--  <td>{{e.author.lastName}}</td>
+              <td>{{e.author.email}}</td>
+              <td>{{e.author.contactno}}</td>
+              <td>{{e.publisher.publisherName}}</td>
+              <td>{{e.publisher.email}}</td>
+              <td>{{e.publisher.address1}}</td>
+              <td>{{e.publisher.address2}}</td>
+              <td>{{e.publisher.city}}</td>
+              <td>{{e.publisher.state}}</td>
+              <td>{{e.publisher.pincode}}</td> 
+            {{e.issueDate}}, {{e.quantity}},{{e.dueDate}} -->
+              <td>
+                <!-- Button trigger modal -->
+                <button type="button" (click) = "onSubmit(e)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  More Info
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Book Info</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-6">
+        <h3>Book Details</h3>
+                            <div class="form-group">
+                              <label>Book Quantity </label><br>
+                              <input readonly value={{e.books.quantity}} name="BookQuantity" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Book Cost</label><br>
+                              <input value={{e.books.bookCost}} name="BookCost" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Shelf Details </label><br>
+                              <input value={{e.books.shelfDetails}} name="ShelfDetails" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publish Year</label><br>
+                              <input value={{e.books.publishedYear}} name="PublishYear" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Isbncode</label><br>
+                              <input value={{e.books.isbnCode}} name="Isbncode" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Id</label><br>
+                              <input value={{e.books.author.authorId}} name="Author Id" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Last Name </label><br>
+                              <input value={{e.books.author.lastName}} name="AuthorLastName" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Email </label><br>
+                              <input value={{e.books.author.email}} name="AuthorEmail" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Contact Number</label><br>
+                              <input value={{e.books.author.contactno}} name="contactno" class="form-control" />
+                            </div>
+                     
+                            <div class="form-group">
+                                <label>Publisher Name</label><br>
+                                <input value={{e.books.publisher.publisherName}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Contact Number</label><br>
+                                <input value={{e.books.publisher.contactno}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Email</label><br>
+                                <input value={{e.books.publisher.email}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Address1</label><br>
+                                <input value={{e.books.publisher.address1}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Address2</label><br>
+                                <input value={{e.books.publisher.address2}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher City</label><br>
+                                <input value={{e.books.publisher.city}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher State</label><br>
+                                <input value={{e.books.publisher.state}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Pincode</label><br>
+                                <input value={{e.books.publisher.pincode}} name="contactno" class="form-control" />
+                              </div>
+                               <div class="form-group">
+                                <label>Issue Date</label><br>
+                                <input value={{e.issueDate}} name="issueDate" class="form-control" />
+                              </div>
+                            <div class="form-group">
+                                <label>Issue Quantity</label><br>
+                                <input value={{e.quantity}} name="quantity" class="form-control" />
+                              </div>                         
+                              <div class="form-group">
+                                <label>Issue Due Date</label><br>
+                                <input value={{e.dueDate}} name="dueDate" class="form-control" />
+                              </div> 
+
+                          </div>
+                    
+                        </div>
+                      </div>
+                      
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+          <h4 align="center"> There are no issue books to be displayed </h4>
+        </ng-template>
+  
+      </div>
+    </div>

@@ -1,0 +1,278 @@
+<!-- <h1>Returned BOOK LIST</h1>        
+<div class="container">
+<table class="table table-striped" *ngIf=" returnedBookList &&  returnedBookList.length > 0  else elseBlock">
+    <thead>
+    <tr>
+            <th >Returned Book Id</th>
+            <th >Book Id</th>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Quantity</th>
+            <th>Book Cost</th>
+            <th>Shelf Details</th>
+            <th>Publish Year</th>
+            <th>Isbncode</th>
+            <th>Author Id</th>
+            <th>Author First Name</th>
+            <th>Author Last Name</th>
+            <th>Author Email</th>
+            <th>Author Contact Number</th>
+            <th>Publisher Name</th>
+            <th>Publisher Contact Number</th>
+            <th>Publisher Email</th>
+            <th>Publisher Address1</th>
+            <th>Publisher Address2</th>
+            <th>Publisher City</th>
+            <th>Publisher State</th>
+            <th>Publisher Pincode</th>
+            <th>Book Returned Date</th>
+            <th>Delay Days</th>
+            <th>Penalty</th>
+            <th>Penalty Status</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rbook of  returnedBookList" style="text-align: center;">
+            <td>{{rbook.id}}</td>
+            <td>{{rbook.books.bookid}}</td>
+            <td>{{rbook.books.title}}</td>
+            <td>{{rbook.books.subject}}</td>
+            <td>{{rbook.books.quantity}}</td>
+            <td>{{rbook.books.bookCost}}</td>
+            <td>{{rbook.books.shelfDetails}}</td>
+            <td>{{rbook.books.publishedYear}}</td>
+            <td>{{rbook.books.isbnCode}}</td>
+             <td>{{rbook.books.author.authorId}}</td>
+            <td>{{rbook.books.author.firstName}}</td>
+            <td>{{rbook.books.author.lastName}}</td>
+            <td>{{rbook.books.author.email}}</td>
+            <td>{{rbook.books.author.contactno}}</td>
+            <td>{{rbook.books.publisher.publisherName}}</td>
+            <td>{{rbook.books.publisher.contactno}}</td>
+            <td>{{rbook.books.publisher.email}}</td>
+            <td>{{rbook.books.publisher.address1}}</td>
+            <td>{{rbook.books.publisher.address2}}</td>
+            <td>{{rbook.books.publisher.city}}</td>
+            <td>{{rbook.books.publisher.state}}</td>
+            <td>{{rbook.books.publisher.pincode}}</td>
+            <td>{{rbook.returnedDate}}</td>
+            <td>{{rbook.delayedDays}}</td>
+            <td>{{rbook.penalty}}</td>
+            <td>{{rbook.penaltyStatus}}</td>
+
+            <td>
+             <i class="fas fa-edit" (click)=update(rbook)></i>
+            </td>
+            <td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h4 align="center"> There are no books to display,please add books! </h4>
+</ng-template>
+
+</div>
+<div>
+</div> -->
+
+
+
+<script>
+    // $('#myModal').on('shown.bs.modal', function () {
+    //   $('#myInput').trigger('focus')
+    // })
+  </script>
+  
+  <div class="container" style="font-size: 20px; color: white;">
+    <h1 align="center">
+     View All Returned Books</h1>
+    <hr>
+  
+    
+  
+    <div class="table-responsive-md">
+      <div class="container">
+        <table class="table" *ngIf="returnedBookList &&  returnedBookList.length > 0  else elseBlock">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" >Returned Book Id</th>
+                <th scope="col">Book Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Author First Name</th>
+                <!-- <th>Quantity</th>
+                <th>Book Cost</th>
+                <th>Shelf Details</th>
+                <th>Publish Year</th>
+                <th>Isbncode</th>
+                <th>Author Id</th>
+                <th>Author First Name</th>
+                <th>Author Last Name</th>
+                <th>Author Email</th>
+                <th>Author Contact Number</th>
+                <th>Publisher Name</th>
+                <th>Publisher Contact Number</th>
+                <th>Publisher Email</th>
+                <th>Publisher Address1</th>
+                <th>Publisher Address2</th>
+                <th>Publisher City</th>
+                <th>Publisher State</th>
+                <th>Publisher Pincode</th>
+                <th>Book Returned Date</th>
+                <th>Delay Days</th>
+                <th>Penalty</th>
+                <th>Penalty Status</th> -->
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rbook of  returnedBookList" style="text-align: center;">
+              <td>{{rbook.id}}</td>
+              <td>{{rbook.books.bookid}}</td>
+              <td>{{rbook.books.title}}</td>
+              <td>{{rbook.books.subject}}</td>
+              <!-- <td>{{e.quantity}}</td>
+              <td>{{e.bookCost}}</td>
+              <td>{{e.shelfDetails}}</td>
+              <td>{{e.publishedYear}}</td>
+              <td>{{e.isbnCode}}</td>
+               <td>{{e.author.authorId}}</td> -->
+               <td>{{rbook.books.author.firstName}}</td>
+             <!--  <td>{{e.author.lastName}}</td>
+              <td>{{e.author.email}}</td>
+              <td>{{e.author.contactno}}</td>
+              <td>{{e.publisher.publisherName}}</td>
+              <td>{{e.publisher.email}}</td>
+              <td>{{e.publisher.address1}}</td>
+              <td>{{e.publisher.address2}}</td>
+              <td>{{e.publisher.city}}</td>
+              <td>{{e.publisher.state}}</td>
+              <td>{{e.publisher.pincode}}</td> -->
+              <td>
+                <!-- Button trigger modal -->
+                <button type="button" (click) = "onSubmit(rbook)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  More Info
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Damaged Book Info</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-6">
+             <h3>Book Details</h3>
+                            <div class="form-group">
+                              <label>Book Quantity </label><br>
+                              <input readonly value={{rbook.books.quantity}} name="BookQuantity" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Book Cost</label><br>
+                              <input value={{rbook.books.bookCost}} name="BookCost" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Shelf Details </label><br>
+                              <input value={{rbook.books.shelfDetails}} name="ShelfDetails" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publish Year</label><br>
+                              <input value={{rbook.books.publishedYear}} name="PublishYear" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Isbncode</label><br>
+                              <input value={{rbook.books.isbnCode}} name="Isbncode" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Id</label><br>
+                              <input value={{rbook.books.author.authorId}} name="Author Id" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Last Name </label><br>
+                              <input value={{rbook.books.author.lastName}} name="AuthorLastName" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Email </label><br>
+                              <input value={{rbook.books.author.email}} name="AuthorEmail" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Author Contact Number</label><br>
+                              <input value={{rbook.books.author.contactno}} name="contactno" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publisher Name</label><br>
+                              <input value={{rbook.books.publisher.publisherName}} name="IFSC" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publisher Contact Number </label><br>
+                              <input value={{rbook.books.publisher.contactno}} name="Contactno" class="form-control" />
+                            </div>
+                            
+                            <div class="form-group">
+                              <label>Publisher Email </label><br>
+                              <input value={{rbook.books.publisher.email}} name="Email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publisher Address1 </label><br>
+                              <input value={{rbook.books.publisher.address1}} name="Address1" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publisher Address2</label><br>
+                              <input value={{rbook.books.publisher.address2}} name="Address2" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publisher City</label><br>
+                              <input value={{rbook.books.publisher.city}} name="City" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Publisher State</label><br>
+                              <input value={{rbook.books.publisher.state}} name="State" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                             <label>Publisher Pincode</label><br>
+                              <input value={{rbook.books.publisher.pincode}} name="Pincode" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                              <label>Returned date</label><br>
+                               <input value={{rbook.returnedDate}} name="ReturnedDAte" class="form-control" />
+                             </div>
+                             <div class="form-group">
+                              <label>Delayed Days</label><br>
+                               <input value={{rbook.delayedDays}} name="DelayedDays" class="form-control" />
+                             </div>
+                             <div class="form-group">
+                              <label>Penalty</label><br>
+                               <input value={{rbook.penalty}} name="Penalty" class="form-control" />
+                             </div>
+                             <div class="form-group">
+                              <label>Penalty Status</label><br>
+                               <input value={{rbook.penaltyStatus}} name="Penalty Status" class="form-control" />
+                             </div>
+                          </div>
+            
+                        </div>
+                      </div>
+                       <div class="modal-footer">
+                        <button type="button " class="close" data-dismiss="modal" class="btn btn-success" (click)="update(rbook)">Update</button>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+          <h4 align="center"> There are no returned books to  display </h4>
+        </ng-template>
+
+      </div>
+    </div>

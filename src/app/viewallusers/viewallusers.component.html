@@ -1,0 +1,185 @@
+<!-- <h1>User List</h1>        
+<div class="container">
+<table class="table table-striped" >
+    <thead>
+    <tr>
+            <th >First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Subscription Date</th>
+            <th>Expire Date</th>
+            <th>Subscription Status</th>
+            <th>Address1</th>
+            <th>Address2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Pincode</th>
+            <th>User Name</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList" style="text-align: center;">
+            
+            <td>{{user.firstName}}</td>
+            
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.mobileno}}</td>
+            <td>{{user.subscriptionDate}}</td>
+            <td>{{user.subExpireDate}}</td>
+            <td>{{user.subscriptionStatus}}</td>
+            <td>{{user.userAddress.address1}}</td>
+            <td>{{user.userAddress.address2}}</td>
+             <td>{{user.userAddress.city}}</td>
+            <td>{{user.userAddress.state}}</td>
+            <td>{{user.userAddress.pincode}}</td>
+            <td>{{user.user.username}}</td>
+
+            <td >
+                <i class="fas fa-trash" (click)=delete(e)></i>
+            </td>
+            <td>
+             <i class="fas fa-edit" (click)=update(e)></i>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h4 align="center"> There are no books to display,please add books! </h4>
+</ng-template>
+
+</div>
+<div>
+</div> -->
+
+
+<script>
+    // $('#myModal').on('shown.bs.modal', function () {
+    //   $('#myInput').trigger('focus')
+    // })
+  </script>
+  
+  <div class="container" style="font-size: 20px; color: white;">
+    <h1 align="center">
+      View All Users</h1>
+    <hr>
+  
+    <!-- <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search by scholarshipName" name="search" [(ngModel)]="searchvalue">
+    </div> -->
+  
+    <div class="table-responsive-md">
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" >First Name</th>
+                      <th scope="col"  >Last Name</th>
+                      <th scope="col">Email</th>
+                       <!-- <th scope="col">Phone number</th> -->
+                      <!-- <th scope="col">Subscription Date</th> -->
+                      <!-- <th scope="col">Expire Date</th> -->
+                      <!-- <th scope="col">Subscription Status</th> -->
+                      <!-- <th scope="col">Address1</th> -->
+                      <!-- <th scope="col">Address2</th> --> 
+                      <!-- <th scope="col">City</th> -->
+                       <!-- <th scope="col">State</th> -->
+                      <!-- <th scope="col">Pincode</th> -->
+                      <th scope="col">User Name</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of userList" style="text-align: center;">
+                <td>{{user.firstName}}</td>            
+                      <td>{{user.lastName}}</td>
+                      <td>{{user.email}}</td>
+                      <!-- <td>{{user.mobileno}}</td> -->
+                      <!-- <td>{{user.subscriptionDate}}</td> -->
+                      <!-- <td>{{user.subExpireDate}}</td> -->
+                      <!-- <td>{{user.subscriptionStatus}}</td> -->
+                      <!-- <td>{{user.userAddress.address1}}</td> -->
+                      <!-- <td>{{user.userAddress.address2}}</td> -->
+                       <!-- <td>{{user.userAddress.city}}</td> -->
+                      <!-- <td>{{user.userAddress.state}}</td> -->
+                      <!-- <td>{{user.userAddress.pincode}}</td> -->
+                      <td>{{user.user.username}}</td>
+              <td>
+                <!-- Button trigger modal -->
+                <button type="button" (click) = "onSubmit(e)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  More Info
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Book Info</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h3>User Details</h3>
+                                      <div class="form-group">
+                                      <label>Phone number</label><br>
+                                      <input readonly value={{user.mobileno}} name="mobileno" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Subscription Date </label><br>
+                                      <input readonly value={{user.subscriptionDate}} name="SubscriptionDate" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Expire Date</label><br>
+                                      <input value={{user.subExpireDate}} name="ExpireDate" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Subscription Status</label><br>
+                                      <input value={{user.subscriptionStatus}} name="SubscriptionStatus" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Address1</label><br>
+                                      <input value={{user.userAddress.address1}} name="userAdd1" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Address2</label><br>
+                                      <input value={{user.userAddress.address2}} name="userAdd2" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>City</label><br>
+                                      <input value={{user.userAddress.city}} name="city" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>State </label><br>
+                                      <input value={{user.userAddress.state}} name="state" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                      <label>Pincode </label><br>
+                                      <input value={{user.userAddress.pincode}} name="pincode" class="form-control" />
+                                    </div>                      
+                          </div>
+                    
+                        </div>
+                      </div>
+                      
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+          <h4 align="center"> There are no user to be display </h4>
+        </ng-template>
+  
+      </div>
+    </div>

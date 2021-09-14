@@ -1,0 +1,355 @@
+<!-- <h1>BOOK LIST</h1>        
+<div class="container">
+<table class="table table-striped" *ngIf="orderBookList && orderBookList.length > 0  else elseBlock">
+    <thead>
+    <tr>    
+            <th >Order Book Id</th>
+            <th >Book Id</th>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Quantity</th>
+            <th>Book Cost</th>
+            <th>Shelf Details</th>
+            <th>Publish Year</th>
+            <th>Isbncode</th>
+            <th>Author Id</th>
+            <th>Author First Name</th>
+            <th>Author Last Name</th>
+            <th>Author Email</th>
+            <th>Author Contact Number</th>
+            <th>Publisher Name</th>
+            <th>Publisher Contact Number</th>
+            <th>Publisher Email</th>
+            <th>Publisher Address1</th>
+            <th>Publisher Address2</th>
+            <th>Publisher City</th>
+            <th>Publisher State</th>
+            <th>Publisher Pincode</th>
+            <th>Order Book Quantity</th>
+            <th>Order Book Date</th>
+            <th>Order Book Status</th>
+            
+
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of orderBookList" style="text-align: center;">
+            <td>{{book.orderId}}</td>
+            <td>{{book.books.bookid}}</td>
+            <td>{{book.books.title}}</td>
+            <td>{{book.books.subject}}</td>
+            <td>{{book.books.quantity}}</td>
+            <td>{{book.books.bookCost}}</td>
+            <td>{{book.books.shelfDetails}}</td>
+            <td>{{book.books.publishedYear}}</td>
+            <td>{{book.books.isbnCode}}</td>
+            <td>{{book.books.author.authorId}}</td>
+            <td>{{book.books.author.firstName}}</td>
+            <td>{{book.books.author.lastName}}</td>
+            <td>{{book.books.author.email}}</td>
+            <td>{{book.books.author.contactno}}</td>
+            <td>{{book.books.publisher.publisherName}}</td>
+            <td>{{book.books.publisher.contactno}}</td>
+            <td>{{book.books.publisher.email}}</td>
+            <td>{{book.books.publisher.address1}}</td>
+            <td>{{book.books.publisher.address2}}</td>
+            <td>{{book.books.publisher.city}}</td>
+            <td>{{book.books.publisher.state}}</td>
+            <td>{{book.books.publisher.pincode}}</td>
+            <td>{{book.quantity}}</td>
+            <td>{{book.orderDate}}</td>
+            <td>{{book.orderStatus}}</td>
+
+            <td >
+                <i class="fas fa-trash" (click)=delete(book)></i>
+            </td>
+            <td>
+             <i class="fas fa-edit" (click)=update(book)></i>
+            </td>
+            <td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h4 align="center"> There are no books to display,please add books! </h4>
+</ng-template>
+
+</div> -->
+<!-- <h1>BOOK LIST</h1>        
+<div class="container">
+<table class="table table-striped" *ngIf="bookList && bookList.length > 0  else elseBlock">
+    <thead>
+    <tr>
+        <th >Book Id</th>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Quantity</th>
+            <th>Book Cost</th>
+            <th>Shelf Details</th>
+            <th>Publish Year</th>
+            <th>Isbncode</th>
+            <th>Author Id</th>
+            <th>Author First Name</th>
+            <th>Author Last Name</th>
+            <th>Author Email</th>
+            <th>Author Contact Number</th>
+            <th>Publisher Name</th>
+            <th>Publisher Contact Number</th>
+            <th>Publisher Email</th>
+            <th>Publisher Address1</th>
+            <th>Publisher Address2</th>
+            <th>Publisher City</th>
+            <th>Publisher State</th>
+            <th>Publisher Pincode</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of bookList" style="text-align: center;">
+            <td>{{e.bookid}}</td>
+            <td>{{e.title}}</td>
+            <td>{{e.subject}}</td>
+            <td>{{e.quantity}}</td>
+            <td>{{e.bookCost}}</td>
+            <td>{{e.shelfDetails}}</td>
+            <td>{{e.publishedYear}}</td>
+            <td>{{e.isbnCode}}</td>
+             <td>{{e.author.authorId}}</td>
+            <td>{{e.author.firstName}}</td>
+            <td>{{e.author.lastName}}</td>
+            <td>{{e.author.email}}</td>
+            <td>{{e.author.contactno}}</td>
+            <td>{{e.publisher.publisherName}}</td>
+            <td>{{e.publisher.email}}</td>
+            <td>{{e.publisher.address1}}</td>
+            <td>{{e.publisher.address2}}</td>
+            <td>{{e.publisher.city}}</td>
+            <td>{{e.publisher.state}}</td>
+            <td>{{e.publisher.pincode}}</td>
+
+           
+            <td><button (click)="issue(e)"  class="btn btn-success">Issue</button></td>
+            <td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h4 align="center"> There are no books to display,please add books! </h4>
+</ng-template>
+
+</div>
+<div>
+</div> -->
+<script>
+    // $('#myModal').on('shown.bs.modal', function () {
+    //   $('#myInput').trigger('focus')
+    // })
+  </script>
+  
+  <div class="container" style="font-size: 20px; color: white;">
+    <h1 align="center">
+      View All Books</h1>
+    <hr>
+  
+    <!-- <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search by scholarshipName" name="search" [(ngModel)]="searchvalue">
+    </div> -->
+  
+    <div class="table-responsive-md">
+      <div class="container">
+        <table class="table" *ngIf="orderBookList && orderBookList.length > 0  else elseBlock">
+          <thead class="thead-dark">
+            <tr>
+               <th scope="col" >Order Book Id</th>
+                <th scope="col">Book Id</th>
+                <th scope="col"  >Title</th>
+                <th scope="col">Subject</th>
+                <!-- <th scope="col">Quantity</th>
+                <th scope="col">Book Cost</th>
+                <th scope="col">Shelf Details</th>
+                <th scope="col">Publish Year</th>
+                <th scope="col">Isbncode</th>
+                <th scope="col">Author Id</th> -->
+                <th scope="col">Author First Name</th>
+                <!-- <th scope="col">Author Last Name</th>
+                <th scope="col">Author Email</th>
+                <th scope="col">Author Contact Number</th>
+                <th scope="col">Publisher Name</th>
+                <th scope="col">Publisher Contact Number</th>
+                <th scope="col">Publisher Email</th>
+                <th scope="col">Publisher Address1</th>
+                <th scope="col">Publisher Address2</th>
+                <th scope="col">Publisher City</th>
+                <th scope="col">Publisher State</th>
+                <th scope="col">Publisher Pincode</th> 
+                <th>Order Book Quantity</th>
+                <th>Order Book Date</th>
+                <th>Order Book Status</th>-->
+                <th>Update Order Book</th>
+                <th>Update Delete Book</th>
+                
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of orderBookList" style="text-align: center;">
+			
+           <td>{{book.orderId}}</td>
+                <td>{{book.books.bookid}}</td>
+                <td>{{book.books.title}}</td>
+                <td>{{book.books.subject}}</td>
+                <!-- <td>{{book.books.quantity}}</td>
+                <td>{{book.books.bookCost}}</td>
+                <td>{{book.books.shelfDetails}}</td>
+                <td>{{book.books.publishedYear}}</td>
+                <td>{{book.books.isbnCode}}</td>
+                <td>{{book.books.author.authorId}}</td> -->
+                <td>{{book.books.author.firstName}}</td>
+                <!-- <td>{{book.books.author.lastName}}</td>
+                <td>{{book.books.author.email}}</td>
+                <td>{{book.books.author.contactno}}</td>
+                <td>{{book.books.publisher.publisherName}}</td>
+                <td>{{book.books.publisher.contactno}}</td>
+                <td>{{book.books.publisher.email}}</td>
+                <td>{{book.books.publisher.address1}}</td>
+                <td>{{book.books.publisher.address2}}</td>
+                <td>{{book.books.publisher.city}}</td>
+                <td>{{book.books.publisher.state}}</td>
+                <td>{{book.books.publisher.pincode}}</td>
+                <td>{{book.quantity}}</td>
+                <td>{{book.orderDate}}</td>
+                <td>{{book.orderStatus}}</td> -->
+                <td>
+                  <button type="button " class="close" data-dismiss="modal" class="btn btn-success" (click)="update(book)">Update</button>
+                </td>
+                <td>
+                  <button type="button " class="close" data-dismiss="modal" class="btn btn-danger" (click)="delete(book)">Delete</button>    
+                </td>
+               
+              <td>
+                <!-- Button trigger modal -->
+                <button type="button" (click) = "onSubmit(book)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  More Info
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Book Order Info</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h3>Book Details</h3>
+                            <div class="form-group">
+                                <label>Book Quantity </label><br>
+                                <input readonly value={{book.books.quantity}} name="BookQuantity" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Book Cost</label><br>
+                                <input value={{book.books.bookCost}} name="BookCost" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Shelf Details </label><br>
+                                <input value={{book.books.shelfDetails}} name="ShelfDetails" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publish Year</label><br>
+                                <input value={{book.books.publishedYear}} name="PublishYear" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Isbncode</label><br>
+                                <input value={{book.books.isbnCode}} name="Isbncode" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Author Id</label><br>
+                                <input value={{book.books.author.authorId}} name="Author Id" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Author Last Name </label><br>
+                                <input value={{book.books.author.lastName}} name="AuthorLastName" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Author Email </label><br>
+                                <input value={{book.books.author.email}} name="AuthorEmail" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Author Contact Number</label><br>
+                                <input value={{book.books.author.contactno}} name="contactno" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Name</label><br>
+                                <input value={{book.books.publisher.publisherName}} name="IFSC" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Contact Number </label><br>
+                                <input value={{book.books.publisher.contactno}} name="Contactno" class="form-control" />
+                              </div>
+                              
+                              <div class="form-group">
+                                <label>Publisher Email </label><br>
+                                <input value={{book.books.publisher.email}} name="Email" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Address1 </label><br>
+                                <input value={{book.books.publisher.address1}} name="Address1" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher Address2</label><br>
+                                <input value={{book.books.publisher.address2}} name="Address2" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher City</label><br>
+                                <input value={{book.books.publisher.city}} name="City" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Publisher State</label><br>
+                                <input value={{book.books.publisher.state}} name="State" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                               <label>Publisher Pincode</label><br>
+                                <input value={{book.books.publisher.pincode}} name="Pincode" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label> Quantity</label><br>
+                                <input value={{book.quantity}} name="quantity" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Order Date </label><br>
+                                <input value={{book.orderDate}} name="OrderDate" class="form-control" />
+                              </div>
+                              <div class="form-group">
+                                <label>Order Status </label><br>
+                                <input value={{book.orderStatus}} name="OrderStatus" class="form-control" />
+                              </div>
+                          </div>
+                    
+                        </div>
+                      </div>
+                       <div class="modal-footer">
+                          <button type="button " class="close" data-dismiss="modal" class="btn btn-danger" (click)="delete(book)">Delete</button>    
+                        </div>
+						<div class="modal-footer">
+                          <button type="button " class="close" data-dismiss="modal" class="btn btn-success" (click)="update(book)">Update</button>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #elseBlock>
+          <h4 align="center"> There are no ordered books to be display </h4>
+        </ng-template>
+  
+      </div>
+    </div>
+

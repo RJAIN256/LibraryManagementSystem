@@ -1,0 +1,212 @@
+<!-- 
+<nav class="navbar navbar-expand-md  navbar-dark bg-dark">
+     
+      <a routerLink="homepage" class="nav-item nav-link active" style="color:white"><i class="fas fa-home fa-lg"></i></a>
+   
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+       
+        <div class="navbar-nav ml-auto">
+          <a routerLink="login" *ngIf="!loginService.isUserLoggedIn()" class="nav-item nav-link">LOGIN</a>
+          <a routerLink="adminregister" *ngIf="!loginService.isUserLoggedIn()" class="nav-item nav-link">Admin register</a>
+          <a routerLink="addbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">ADD Book</a> 
+          <a routerLink="adddamagebook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">ADD damage Book</a> 
+          <a routerLink="addorderbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">ADD order Book</a>
+          <a routerLink="addreturnbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">ADD return Book</a> 
+
+           <a routerLink="bookviewdata" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">VIEW ALL Book</a> 
+          <a routerLink="viewissuedbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">VIEW ALL Book</a> 
+          <a routerLink="viewdamagebook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">VIEW damage Book</a> 
+          <a routerLink="vieworderbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">VIEW order Book</a>
+           <a routerLink="viewreturnbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " class="nav-item nav-link">VIEW return Book</a> 
+          
+            <a routerLink="viewissuedbook"  *ngIf="loginService.isUserLoggedIn()"class="nav-item nav-link">CONTACT US</a> 
+          <a routerLink="aboutus" *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link">ABOUT US</a>  
+          <a routerLink="logout" *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link">LOGOUT</a>
+        </div>
+      </div>
+    </nav>
+    <router-outlet></router-outlet> -->
+    <!-- <head>
+      <style>
+          .navbar-nav {
+              margin-right: auto;
+          }
+      </style>
+  
+  
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  
+  </head>
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Library </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+  
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="userprofile"  *ngIf="loginService.isUserLoggedIn() && loginService.isUser() "routerLinkActive="Active">MyProfile</a>
+              </li>
+  
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="updateProfile" *ngIf="loginService.isUserLoggedIn() && loginService.isUser() "routerLinkActive="Active">UpdateProfile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="adminregister" *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="Active">Admin Register</a>
+            </li> <li class="nav-item">
+              <a class="nav-link" routerLink="userregister" *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="Active">Sign up</a>
+          </li>
+
+  
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" *ngIf="loginService.isUserLoggedIn()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  View
+                </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="bookviewdata" routerLinkActive="Active">Books List</a>
+                      <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewsuggestedbook" routerLinkActive="Active">Suggested Books </a>
+                      <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewissuedbook" routerLinkActive="Active">Issued Books </a>
+                      <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewreturnbook" routerLinkActive="Active">Returned Books </a>
+                      <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewdamagebook" routerLinkActive="Active">Damaged Books </a>
+                      <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="vieworderbook" routerLinkActive="Active">Orderd Books </a>
+                      <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isUser() " routerLink="viewbookbyuser" routerLinkActive="Active">All Books </a>
+                  </div>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" *ngIf="loginService.isUserLoggedIn()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Add
+                </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" routerLink="addSuggested-books" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="Active">Suggested Books</a>
+                      <a class="dropdown-item" routerLink="addbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLinkActive="Active">Book</a>
+                      <a class="dropdown-item" routerLink="adddamagebook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLinkActive="Active">Damage Book</a>
+                      <a class="dropdown-item" routerLink="addorderbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLinkActive="Active">Order Books</a>
+                      <a class="dropdown-item" routerLink="addreturnbook" *ngIf="loginService.isUserLoggedIn() && loginService.isUser() " routerLinkActive="Active">Return Books</a>
+  
+                  </div>
+  
+              </li>
+          </ul>
+          <nav class="navbar navbar-expand-sm bg-dark">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="login" *ngIf="!loginService.isUserLoggedIn()" >
+                          Login
+                        </a>
+                </li>
+
+
+            </ul>
+        </nav>
+          <nav class="navbar navbar-expand-sm bg-dark">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link"  routerLink="logout" *ngIf="loginService.isUserLoggedIn()">
+                            Logout
+                          </a>
+                  </li>
+  
+  
+              </ul>
+          </nav>
+      </div>
+  </nav>
+  
+  
+  <router-outlet></router-outlet> -->
+  
+  
+
+  <div >
+
+    <nav class="navbar navbar-expand-md  navbar-dark bg-dark  fixed-top " id="Navbar">
+ 
+  <a routerLink="" class="nav-item nav-link active" style="color:white"><i class="fas fa-home fa-4x"></i> <h4>Library</h4></a>
+
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+   
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link" href="#abt">ABOUT US</a> 
+     
+      <li class="nav-item">
+        <a class="nav-link" routerLink="userprofile"  *ngIf="loginService.isUserLoggedIn() && loginService.isUser() "routerLinkActive="Active">MyProfile</a>
+    </li>
+
+    <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="updateProfile" *ngIf="loginService.isUserLoggedIn() && loginService.isUser() "routerLinkActive="Active">UpdateProfile</a>
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-link" routerLink="adminregister"  routerLinkActive="Active">ADMIN REGISTER</a>
+  </li> <li class="nav-item">
+    <a class="nav-link" routerLink="userregister" *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="Active">SIGN UP</a>
+</li>
+
+      <div  class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin()" id="navbarDropdownMenuLink" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="addbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLinkActive="Active">Book</a>
+          <!-- <a class="dropdown-item" routerLink="adddamagebook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLinkActive="Active">Damage Book</a> -->
+          <a class="dropdown-item" routerLink="addorderbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLinkActive="Active">Order Books</a>
+          <a class="dropdown-item" routerLink="addreturnbook" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLinkActive="Active">Return Books</a>
+
+      </div>
+    </div>
+
+    <div  class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"  *ngIf="loginService.isUserLoggedIn()" id="navbarDropdownMenuLink" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          View
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="bookviewdata" routerLinkActive="Active">Books List</a>
+        <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewissuedbook" routerLinkActive="Active">Issued Books </a>
+        <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewreturnbook" routerLinkActive="Active">Returned Books </a>
+        <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewdamagebook" routerLinkActive="Active">Damaged Books </a>
+        <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="vieworderbook" routerLinkActive="Active">Orderd Books </a>
+        <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isUser() " routerLink="viewbookbyuser" routerLinkActive="Active">All Books </a>
+        <a class="dropdown-item" *ngIf="loginService.isUserLoggedIn() && loginService.isAdmin() " routerLink="viewalluser" routerLinkActive="Active">All Users </a>
+    </div>
+  </div>
+
+      
+        <a routerLink="" class="nav-item nav-link">CONTACT US</a> 
+        <a routerLink="login" *ngIf="!loginService.isUserLoggedIn()" class="nav-item nav-link">LOGIN</a> 
+      <a routerLink="logout" *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link">LOGOUT</a>
+    </div>
+  </div>
+</nav>
+<div class="banner-area">
+<div class="intro">
+<h1> <span>L</span>i<span>br</span>a<span>ry</span><span> &nbsp; </span><span>Man</span>age<span>men</span>t
+<br>
+<span>Sys</span>t<span>em</span></h1>
+</div>
+</div>
+
+</div>
+
+
+<router-outlet></router-outlet>

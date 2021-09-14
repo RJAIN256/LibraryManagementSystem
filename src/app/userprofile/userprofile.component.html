@@ -1,0 +1,125 @@
+<!-- <h1>User List</h1>        
+<div class="container">
+<table class="table table-striped" >
+    <thead>
+    <tr>
+            <th >First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Subscription Date</th>
+            <th>Expire Date</th>
+            <th>Subscription Status</th>
+            <th>Address1</th>
+            <th>Address2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Pincode</th>
+            <th>User Name</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList" style="text-align: center;">
+            <tr>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.mobileno}}</td>
+            <td>{{user.subscriptionDate}}</td>
+            <td>{{user.subExpireDate}}</td>
+            <td>{{user.subscriptionStatus}}</td>
+            <td>{{user.userAddress.address1}}</td>
+            <td>{{user.userAddress.address2}}</td>
+             <td>{{user.userAddress.city}}</td>
+            <td>{{user.userAddress.state}}</td>
+            <td>{{user.userAddress.pincode}}</td>
+            <td>{{user.user.username}}</td>
+
+            <td >
+                <i class="fas fa-trash" (click)=delete(e)></i>
+            </td>
+            <td>
+             <i class="fas fa-edit" (click)=update(e)></i>
+            </td>
+            <td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock>
+    <h4 align="center"> There are no books to display,please add books! </h4>
+</ng-template>
+
+</div>
+<div>
+</div> -->
+<div id="re">
+    <div class="container" >
+        <div class="title">Profile</div>
+        <div class="content">
+            <form #useUpdate="ngForm" >
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">First Name</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName" placeholder="Enter your name" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last name</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName" placeholder="Enter your username" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Enter your email" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.mobileno" name="mobileno" placeholder="Enter your number" ngModel>
+                    </div>
+                    <!-- <div ngModelGroup="userAddress"> -->
+
+                    <div class="input-box">
+                        <span class="details">Subscription Date</span>
+                        <input type="date" class="form-control" [(ngModel)]="user.subscriptionDate" name="subscription_date" placeholder="Enter your subscription Date" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Expire Date</span>
+                        <input type="date" class="form-control" [(ngModel)]="user.subExpireDate" name="sub_expire_date" placeholder="Enter your State" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details"> subscription Status</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.subscriptionStatus" name="subscription_status" placeholder="Enter your State" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Address1</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.userAddress.address1" name="address1" placeholder="Enter your address1" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Landmark</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.userAddress.address2" name="address2" placeholder="Enter your address2" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">City</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.userAddress.city" name="city" placeholder="Enter your City" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">State</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.userAddress.state" name="state" placeholder="Enter your State" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Pincode</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.userAddress.pincode" name="pincode" placeholder="Enter your State" ngModel>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">User Name</span>
+                        <input type="text" class="form-control" [(ngModel)]="user.user.username" name="pincode" placeholder="Enter your State" ngModel>
+                    </div>
+                </div>
+
+
+                <div class="button">
+                    <button type="submit" value="Register" (click)=update(user) class="btn btn-success">Update</button><br><br>
+                    <button (click)=cancelSubscription(user) class="btn btn-danger">Cancel Subscription</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
